@@ -1,0 +1,22 @@
+[package]
+name = "qr_scan"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+default-run = "qr_scan"
+
+[dependencies]
+anyhow = "1"
+csv = "1"
+image = "0.25"
+lopdf = "0.32"
+quircs = "0.10"
+rfd = "0.14"
+rqrr = "0.10"
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "2", features = [] }
+walkdir = "2"
+zip = "2"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发票二维码识别台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-a"></div>
+    <div class="bg-glow bg-b"></div>
+
+    <main class="app">
+      <header class="hero">
+        <p class="badge">QR SCAN</p>
+        <h1>发票二维码批量识别</h1>
+        <p class="subtitle">by AdySec</p>
+      </header>
+
+      <section class="panel controls">
+        <div class="control-row">
+          <button id="pick-btn" class="btn btn-primary">选择文件</button>
+          <button id="scan-btn" class="btn">开始识别</button>
+          <button id="export-btn" class="btn btn-success">导出 CSV</button>
+          <label class="timeout-box" for="timeout-secs">
+            单文件超时(秒)
+            <input id="timeout-secs" type="number" min="1" max="180" value="5" />
+          </label>
+        </div>
+
+        <div class="progress-row">
+          <progress id="scan-progress" max="100" value="0"></progress>
+          <span id="progress-text">0%</span>
+        </div>
+
+        <div id="status" class="status">请选择文件后开始识别。</div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">已选文件与识别结果</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>文件</th>
+                <th>发票类型标识</th>
+                <th>发票种类代码</th>
+                <th>发票代码</th>
+                <th>发票号码</th>
+                <th>开票金额</th>
+                <th>开票日期</th>
+                <th>发票校验码</th>
+                <th>加密字符</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="result-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
